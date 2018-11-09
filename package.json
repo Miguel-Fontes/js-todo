@@ -1,7 +1,7 @@
 {
-  "name": "js-todo",
+  "name": "ng-todo",
   "version": "1.0.0",
-  "description": "Todo Application",
+  "description": "Todo Application made with Angular 1.x",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
