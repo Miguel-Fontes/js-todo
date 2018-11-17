@@ -4,11 +4,13 @@
   "description": "Todo Application made with Angular 1.x",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -o"
   },
   "author": "Miguel Fontes",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "http-server": "^0.11.1"
   }
 }

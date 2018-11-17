@@ -1,39 +1,52 @@
 (function() {
-    'use strict';
+  "use strict";
 
-    angular
-        .module('app.todo')
-        .controller('TodoListController', TodoListController);
+  angular
+    .module("app.todo")
+    .controller("TodoListController", TodoListController);
 
-    TodoListController.$inject = [];
-    function TodoListController() {
-        var vm = this;
+  TodoListController.$inject = [];
+  function TodoListController() {
+    var vm = this;
 
-        vm.name = 'Miguel Fontes'
-        vm.list = [];
+    vm.lists = [];
 
-        activate();
+    activate();
 
-        ////////////////
+    function activate() {
+      vm.lists.push(
+        list({
+          title: "Home",
+          tasks: [task("Estudar Angular"), task("Tirar o lixo")]
+        })
+      );
 
-        function activate() {
-            vm.list.push([
-                todo("my first todo"),
-                todo("my second todo")
-            ])
-        }
-
-        function todo(title) {
-            return {
-                id: hash(title),
-                title: title
-            }
-        }
-
-        function hash(string) {
-            return Math.random() * string.length * new Date().getSeconds()
-        }
-
-
+      vm.selected = vm.lists[0];
     }
+
+    function task(title) {
+      return {
+        id: hash(title),
+        title: title
+      };
+    }
+
+    function list(spec, my) {
+      var that = {};
+      my = my || {};
+
+      init();
+
+      function init() {
+        that.title = spec.title;
+        that.tasks = spec.tasks || [];
+      }
+
+      return that;
+    }
+
+    function hash(string) {
+      return Math.random() * string.length * new Date().getSeconds();
+    }
+  }
 })();
